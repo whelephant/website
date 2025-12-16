@@ -44,9 +44,45 @@
     }
 
     main {
-      max-width: 700px;
+      max-width: 1000px; /* back to two columns */
       margin: 2.5rem auto;
       padding: 0 1rem;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    .contact-sidebar {
+      width: 250px;
+      flex-shrink: 0;
+    }
+
+    .contact-sidebar h2 {
+      text-align: center;
+    }
+
+    .headshot-img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+      margin: 0 auto 1rem;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+        gap: 0;
+      }
+      .contact-sidebar {
+        width: auto;
+        margin-top: 2.5rem;
+      }
     }
 
     section {
@@ -94,6 +130,47 @@
     table.results td.highlight {
       font-weight: bold;
     }
+    /* Contact layout: stacked in sidebar */
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .contact-row .contact-email {
+      margin: 0;
+      text-align: center;
+    }
+    img.wechat {
+      display: none; /* not used in sidebar */
+    }
+
+    @media (min-width: 701px) {
+      img.wechat { display: none; } /* ensure hidden */
+      .wechat-bottom { display: block; }
+    }
+
+    @media (max-width: 700px) {
+      .contact-row {
+        flex-direction: column;
+        align-items: center;
+      }
+      img.wechat {
+        display: none;
+      }
+    }
+    /* Bottom wechat block */
+    .wechat-bottom {
+      text-align: center;
+      margin: 1rem 0;
+    }
+    .wechat-bottom-img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 6px;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
@@ -103,12 +180,8 @@
   </header>
 
   <main>
-    <section>
-      <h2>Contact</h2>
-      <section>
-        <p>Email: <a href="mailto:dgao381@gmail.com">dgao381@gmail.com</a></p>
-      </section>
-    </section>
+    <div class="content">
+    
 
     <section>
       <h2>About</h2>
@@ -121,7 +194,7 @@
     <section>
       <h2>VCE Results</h2>
       <p>
-        99.95 ATAR (2025), and Proxime Accessit of MGS in its most successful academic year in decades. Raw study scores are listed below.
+        99.95 ATAR (2025), and Proxime Accessit of MGS in its most successful academic year in decades. Scaled study scores listed below, with * denoting raw 50 study score.
       </p>
       <table class="results">
   <thead>
@@ -135,24 +208,24 @@
     <tr>
       <td>Literature</td>
       <td>2025</td>
-      <td class="score">50</td>
+      <td class="score">50.0*</td>
     </tr>
- 
-    <tr>
-      <td>Latin</td>
-      <td>2025</td>
-      <td class="score">39</td>
-    </tr>
+
 
     <tr>
       <td>Specialist Mathematics</td>
       <td>2025</td>
-      <td class="score">44</td>
+      <td class="score">53.4</td>
+    </tr>
+        <tr>
+      <td>Latin</td>
+      <td>2025</td>
+      <td class="score">52.1</td>
     </tr>
     <tr>
       <td>Mathematical Methods</td>
       <td>2024</td>
-      <td class="score">50</td>
+      <td class="score">51.3*</td>
     </tr>
     <tr>
       <td>UMEP Mathematics</td>
@@ -162,7 +235,7 @@
        <tr>
       <td>Chemistry</td>
       <td>2025</td>
-      <td class="score">49</td>
+      <td class="score">49.6</td>
     </tr>
 
   </tbody>
@@ -173,15 +246,31 @@
 <section>
       <h2>Tutoring</h2>
       <ul>
-        <li>Highly knowledgeable about VCE—including its quirks and best practices.</li>
+        <li>Highly knowledgeable about VCE—including its quirks and best practices/strategies.</li>
         <li>Having achieved First-Class Honours in UofMelb Extension Maths, I can provide detailed and intuitive conceptual guidance for VCE Mathematics.</li>
         <li>24/7 support: compared to companies, I am far more accessible and responsive.</li>
-        <li>Only taking on a limited number of students, I guarantee individual attention and a personalized learning experience.</li>
+        <li>Only taking on a limited number of students, I guarantee individual attention and a tailored learning experience.</li>
         <li>Someone who can be a mentor and hopefully a friend during a potentially stressful time.</li>
       </ul>
       <p>VCE Subjects: Literature, Specialist Mathematics, Mathematical Methods, Chemistry.</p>
       <p>Younger students: English, Maths, and Chemistry help.</p>
-      <p>Get in touch via email: <a href="mailto:dgao381@gmail.com">dgao381@gmail.com</a></p>
+      
+      Kindly shoot me an email or message for details.
+    </section>
+    </div>
+    
+    <section class="contact-sidebar">
+      <h2>Contact</h2>
+      <img src="headshot.png" alt="Headshot" class="headshot-img">
+      <section>
+        <div class="contact-row">
+          <p class="contact-email">Email: <a href="mailto:dgao381@gmail.com">dgao381@gmail.com</a></p>
+          <img src="wechat.jpg" alt="WeChat" class="wechat">
+        </div>
+        <div class="wechat-bottom">
+          <img src="wechat.jpg" alt="WeChat" class="wechat-bottom-img">
+        </div>
+      </section>
     </section>
   </main>
 
